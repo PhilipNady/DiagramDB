@@ -66,18 +66,22 @@ namespace DiagramDB
             var column = e.Item.DataContext as ColumnDefinition;
             if (column == null || e.Item.Tag == null)
                 return;
-            var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : PropertyImage;
+            //var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : PropertyImage;
+            var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : null;
 
-            
+
             var state = e.GraphicsCache.Paint.SaveCacheState(e.GraphicsCache);
             try
             {
                 e.GraphicsCache.SmoothingMode = SmoothingMode.AntiAlias;
-                var imageSize = image.GetBounds().Size;
-                e.GraphicsCache.ScaleTransform((float)e.Item.Width / imageSize.Width, (float)e.Item.Height / imageSize.Height);
-                using (var svgCache = new GraphicsCacheSvgWrapper(e.GraphicsCache))
+                if (image != null)
                 {
-                    image.RenderToSvgGraphics(svgCache);
+                    var imageSize = image.GetBounds().Size;
+                    e.GraphicsCache.ScaleTransform((float)e.Item.Width / imageSize.Width, (float)e.Item.Height / imageSize.Height);
+                    using (var svgCache = new GraphicsCacheSvgWrapper(e.GraphicsCache))
+                    {
+                        image.RenderToSvgGraphics(svgCache);
+                    }
                 }
             }
             finally

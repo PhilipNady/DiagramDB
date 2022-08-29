@@ -52,6 +52,8 @@ namespace DevExpress.Diagram.Demos {
                         
                         columnDefinition.TableName = sTableName;
                         columnDefinition.Name = drCol["ColumnName"].ToString();
+                        if (sTableName == drCol["ColumnName"].ToString())
+                            continue;
                         if(bool.Parse(drCol["IsPrimaryKey"].ToString()))
                         {
                             columnDefinition.IsPrimaryKey = true;

@@ -22,6 +22,8 @@ namespace DevExpress.Diagram.Demos {
             List<string> lstCols = new List<string>();
             int iTableNum = 0;
             int iPosX = 0,iPosY=0;
+            Dictionary<string, int> dicLevelPositions = new Dictionary<string, int>();
+            int iLevel = 0;
             foreach (DataRow dr1 in dtItems.Rows)
             {
                 TableDefinition tableDefinition1 = new TableDefinition();
@@ -29,10 +31,19 @@ namespace DevExpress.Diagram.Demos {
                 string sTableName = dr1["TableName"].ToString();
                 if (!lstCols.Contains(sTableName))
                 {
-                    iTableNum++;
-                   
+                    
 
-                  
+                   
+                    //each 4 tables increase the level num
+                    if (iTableNum % 4 == 0)
+                    {
+                        iTableNum = 0;
+                        iLevel++;
+                    }
+                    iTableNum++;
+                    dicLevelPositions.Add(sTableName, iLevel);
+
+
                     tableDefinition1.Name = sTableName;
                     List<DataRow> drsColumns = dtItems.AsEnumerable().Where(a => a.Field<string>("TableName") == sTableName).ToList();
                     foreach (DataRow drCol in drsColumns)
@@ -56,21 +67,9 @@ namespace DevExpress.Diagram.Demos {
 
                         }
                         tableDefinition1.Columns.Add(columnDefinition);
-                    }
-                    tableDefinition1.PositionX = iPosX;
-                    tableDefinition1.PositionY = iPosY;
-                    iPosX += 250;
-                    if (iPosX >= 1000)
-                    {
-                        //each column got 35 Pos in Y
-                        iPosX = 0;
-                        iPosY += 80 * drsColumns.Count;
-                        //if (drsColumns.Count>20)
-                        //{
-                        //    iPosY += 300;
-                        //}
                         
                     }
+                 
 
                     lstCols.Add(sTableName);
                     databaseDefinition.Tables.Add(tableDefinition1);
@@ -81,14 +80,59 @@ namespace DevExpress.Diagram.Demos {
                     
                 }
             }
+            iTableNum = 0;
+            iLevel = 0;
+            //Set the positions of tables
+            foreach (TableDefinition tableDefinition1 in databaseDefinition.Tables)
+            {
+               
+                if (iTableNum % 4 == 0 )
+                {
+                    iTableNum = 0;
+                    iLevel++;
+                    iPosX = 0;
+                    int iMaxColCountPerLevel = GetLargestTableColsCount(databaseDefinition, dicLevelPositions, iLevel-1);
+                    //Skip level 1 to make the table start at top
+                    if (iLevel > 1)
+                    {
+                        iPosY += 40 * iMaxColCountPerLevel;
+                    }
+
+
+                }
+
+                iTableNum++;
+
+                tableDefinition1.PositionX = iPosX;
+                tableDefinition1.PositionY = iPosY;
+                iPosX += 250;
+
+
+            }
             return databaseDefinition;
 
-            //using (var stream = DiagramDemoFileHelper.GetDataStream("DatabaseDiagram.xml")) {
-            //    var serializer = new XmlSerializer(typeof(DatabaseDefinition));
-            //    return (DatabaseDefinition)serializer.Deserialize(stream);
-            //}
+           
+        }
+
+
+        public static int GetLargestTableColsCount(DatabaseDefinition databaseDefinition, Dictionary<string, int> dicLevelPositions, int iLevel)
+        {
+            //Get Largest Table Cols Count per level to avoid the overlap
+            int iResult = 0;
+            List<KeyValuePair<string,int>> lstTablesInLevel= dicLevelPositions.Where(a => a.Value == iLevel).ToList();
+            int iMaxColsCount = 0;
+            foreach(KeyValuePair<string,int> keyValuePair1 in lstTablesInLevel)
+            {
+              TableDefinition tableDefinition=  databaseDefinition.Tables.Where(a => a.Name == keyValuePair1.Key).FirstOrDefault();
+                if(tableDefinition.Columns.Count> iMaxColsCount)
+                {
+                    iMaxColsCount = tableDefinition.Columns.Count;
+                }
+            }
+            return iMaxColsCount;
         }
     }
+
 
     [XmlInclude(typeof(TableDefinition)), XmlInclude(typeof(ConnectionDefinition))]
     [XmlRoot("Database")]

@@ -53,6 +53,8 @@
             "BasicShapes",
             "BasicFlowchartShapes"});
             this.diagramControl.OptionsProtection.AllowCollapseContainers = true;
+            this.diagramControl.OptionsProtection.AllowMoveItems = true;
+            this.diagramControl.OptionsProtection.AllowResizeItems = true;
             this.diagramControl.OptionsView.CanvasSizeMode = DevExpress.Diagram.Core.CanvasSizeMode.Fill;
             this.diagramControl.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             this.diagramControl.OptionsView.ShowGrid = false;
@@ -70,7 +72,7 @@
             // panAndZoomDockPanel1
             // 
             this.panAndZoomDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.panAndZoomDockPanel1.FloatLocation = new System.Drawing.Point(1660, 717);
+            this.panAndZoomDockPanel1.FloatLocation = new System.Drawing.Point(736, 466);
             this.panAndZoomDockPanel1.FloatSize = new System.Drawing.Size(300, 200);
             this.panAndZoomDockPanel1.FloatVertical = true;
             this.panAndZoomDockPanel1.ID = new System.Guid("8959ee7c-e6f7-4e0b-9bc6-06eee28c1926");

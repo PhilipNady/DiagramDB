@@ -103,50 +103,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Diagram\Connectors.xml" />
-    <Content Include="Data\Diagram\ContainersAndLists.xml" />
-    <Content Include="Data\Diagram\CustomShapes.xml" />
-    <Content Include="Data\Diagram\DatabaseDiagram.xml" />
-    <Content Include="Data\Diagram\Events.xml" />
-    <Content Include="Data\Diagram\Images.xml" />
     <Content Include="Data\Diagram\Project.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Backgrounds\floor.svg" />
     <Content Include="Images\DatabaseDiagram\id.svg" />
     <Content Include="Images\DatabaseDiagram\property.svg" />
-    <Content Include="Images\OfficePlan\Armchair.svg" />
-    <Content Include="Images\OfficePlan\Chair 1.svg" />
-    <Content Include="Images\OfficePlan\Chair 2.svg" />
-    <Content Include="Images\OfficePlan\Chair.svg" />
-    <Content Include="Images\OfficePlan\Check.svg" />
-    <Content Include="Images\OfficePlan\Couch.svg" />
-    <Content Include="Images\OfficePlan\Cup 1.svg" />
-    <Content Include="Images\OfficePlan\Cup.svg" />
-    <Content Include="Images\OfficePlan\Cupboard.svg" />
-    <Content Include="Images\OfficePlan\Floor.svg" />
-    <Content Include="Images\OfficePlan\Flowers 1.svg" />
-    <Content Include="Images\OfficePlan\Flowers 2.svg" />
-    <Content Include="Images\OfficePlan\Flowers 3.svg" />
-    <Content Include="Images\OfficePlan\Flowers 4.svg" />
-    <Content Include="Images\OfficePlan\Flowers 5.svg" />
-    <Content Include="Images\OfficePlan\Keyboard 1.svg" />
-    <Content Include="Images\OfficePlan\Keyboard 2.svg" />
-    <Content Include="Images\OfficePlan\Keyboard.svg" />
-    <Content Include="Images\OfficePlan\Laptop.svg" />
-    <Content Include="Images\OfficePlan\Monitor 1.svg" />
-    <Content Include="Images\OfficePlan\Monitor.svg" />
-    <Content Include="Images\OfficePlan\Nightstand.svg" />
-    <Content Include="Images\OfficePlan\Notebook 1.svg" />
-    <Content Include="Images\OfficePlan\Notebook 2.svg" />
-    <Content Include="Images\OfficePlan\Notebook.svg" />
-    <Content Include="Images\OfficePlan\Table.svg" />
-    <Content Include="Images\OfficePlan\Window.svg" />
-    <Content Include="Images\OrgChart\BeltTemplate.png" />
-    <Content Include="Images\OrgChart\BottomTextTemplate.png" />
-    <Content Include="Images\OrgChart\CollapsibleTemplate.png" />
-    <Content Include="Images\OrgChart\RightTextTemplate.png" />
-    <Content Include="Images\OrgChart\RightTextTemplate1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

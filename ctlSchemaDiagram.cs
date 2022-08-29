@@ -66,7 +66,9 @@ namespace DiagramDB
             var column = e.Item.DataContext as ColumnDefinition;
             if (column == null || e.Item.Tag == null)
                 return;
-            var image = column.IsPrimaryKey ? IdImage : PropertyImage;
+            var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : PropertyImage;
+
+            
             var state = e.GraphicsCache.Paint.SaveCacheState(e.GraphicsCache);
             try
             {

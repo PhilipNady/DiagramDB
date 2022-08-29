@@ -58,6 +58,7 @@ namespace DevExpress.Diagram.Demos {
                         }
                         if(bool.Parse(drCol["IsForeignKey"].ToString()))
                         {
+                            columnDefinition.IsForeignKey = true;
                             connectionDefinition = new ConnectionDefinition();
                             //dtItems.AsEnumerable().Where(a => a.Field<string>("TableName") == sTableName && a.Field<bool>("IsPrimaryKey"))
                             connectionDefinition.ToRelation = TableRelation.Many;
@@ -193,6 +194,10 @@ namespace DevExpress.Diagram.Demos {
         public string Name { get; set; }
         [XmlAttribute("IsPrimaryKey")]
         public bool IsPrimaryKey { get; set; }
+
+        [XmlAttribute("IsForeignKey")]
+        public bool IsForeignKey { get; set; }
+
         [XmlIgnore]
         public string Id { get { return string.Join(".", TableName, Name); } }
     }

@@ -26,12 +26,18 @@ namespace DiagramDB
         TableRelationEvaluationOperator evaluationOperator;
         readonly SvgBitmap PropertyImage;
         readonly SvgBitmap IdImage;
+        readonly SvgBitmap PKImage;
+        readonly SvgBitmap FKImage;
         public ctlSchemaDiagram()
         {
             InitializeComponent();
             IdImage = LoadSvgImage("Images/DatabaseDiagram/id.svg");
+            PKImage = LoadSvgImage("Images/DatabaseDiagram/icon2.svg");
+            FKImage = LoadSvgImage("Images/DatabaseDiagram/icon1.svg");
+
             PropertyImage = LoadSvgImage("Images/DatabaseDiagram/property.svg");
             FillData();
+            
         }
         public void FillData()
         {
@@ -50,15 +56,20 @@ namespace DiagramDB
 
         private void diagramControl_DoubleClick(object sender, EventArgs e)
         {
-            var item = diagramControl.CalcHitItem(((System.Windows.Forms.MouseEventArgs)e).Location) as DiagramList;
-            if (item != null)
+            var itemTable = diagramControl.CalcHitItem(((System.Windows.Forms.MouseEventArgs)e).Location) as DiagramList;
+            var itemColumn = diagramControl.CalcHitItem(((System.Windows.Forms.MouseEventArgs)e).Location) as DiagramShape;
+            if (itemTable != null)
             {
-                PointFloat controlPoint = diagramControl.PointToControl(item.Position);
+                PointFloat controlPoint = diagramControl.PointToControl(itemTable.Position);
                 FormTableRename formTableRename = new FormTableRename();
                 
-                 sNewTableName = item.Header;
+                 sNewTableName = itemTable.Header;
                  formTableRename.Show();
 
+            }
+            if(itemColumn!=null)
+            {
+                string sColumnName = itemColumn.Content;
             }
         }
         void diagramControl_CustomDrawItem(object sender, CustomDrawItemEventArgs e)
@@ -67,7 +78,19 @@ namespace DiagramDB
             if (column == null || e.Item.Tag == null)
                 return;
             //var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : PropertyImage;
-            var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : null;
+            SvgBitmap image = null;
+            if(column.IsPrimaryKey)
+            {
+                image = PKImage;
+            }
+            else
+            {
+                if (column.IsForeignKey)
+                {
+                    image = FKImage;
+                }
+            } 
+            // var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : null;
 
 
             var state = e.GraphicsCache.Paint.SaveCacheState(e.GraphicsCache);

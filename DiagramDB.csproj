@@ -132,6 +132,8 @@
     <Content Include="Data\Diagram\ProjectDel.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\DatabaseDiagram\icon1.svg" />
+    <Content Include="Images\DatabaseDiagram\icon2.svg" />
     <Content Include="Images\DatabaseDiagram\id.svg" />
     <Content Include="Images\DatabaseDiagram\property.svg" />
   </ItemGroup>

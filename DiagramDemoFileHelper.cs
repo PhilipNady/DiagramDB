@@ -16,8 +16,6 @@ namespace DevExpress.Diagram.Demos {
             return new Bitmap(stream);
         }
         public static SvgImage GetSvgImageResource(string path) {
-            //  var assembly = typeof(DiagramDemoFileHelper).Assembly;
-            //  var stream = AssemblyHelper.GetResourceStream(assembly, path, true);
 
             var stream = GetDataStream(path);
             return SvgImage.FromStream(stream);

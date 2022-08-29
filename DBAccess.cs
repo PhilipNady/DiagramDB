@@ -19,7 +19,7 @@ namespace DiagramMainDemo
         private string sConnectionString = "";
         public DBAccess()
         {
-            // sConnectionString = "Data Source= C:\\Users\\Administrator\\My Documents\\BMS_Data.sdf;Persist Security Info=False"; 
+            
             string s1= GetDataFileName("Data\\Diagram\\" + "Project.sdf");
             sConnectionString = "Data Source=" + s1;
 

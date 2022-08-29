@@ -39,9 +39,9 @@ namespace DiagramDB
                     {
                         using (myStream)
                         {
-                            var fileStream = File.Create(DBAccess.GetRelativeFilePath("Data\\Diagram\\" + "Project.sdf")); //File.Create("C:\\Path\\To\\File");
-                            myStream.CopyTo(fileStream);//.InputStream.Seek(0, SeekOrigin.Begin);
-                            //myStream.InputStream.CopyTo(fileStream);
+                            var fileStream = File.Create(DBAccess.GetRelativeFilePath("Data\\Diagram\\" + "Project.sdf")); 
+                            myStream.CopyTo(fileStream);
+                            
                             fileStream.Close();
 
                         }

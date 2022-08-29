@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 namespace DevExpress.Diagram.Demos {
     public static class DatabaseData {
         public static DatabaseDefinition GetDatabaseDefinition() {
-
+            
             DBAccess db = new DBAccess();
             string sQuery = "SELECT * FROM SchemaItems ";
             DataTable dtItems = db.ExecuteDataTableText(sQuery);
@@ -75,7 +75,7 @@ namespace DevExpress.Diagram.Demos {
                     databaseDefinition.Tables.Add(tableDefinition1);
                     if(connectionDefinition!=null)
                     {
-                        //databaseDefinition.Connections.Add(connectionDefinition);
+                        databaseDefinition.Connections.Add(connectionDefinition);
                     }
                     
                 }
@@ -118,7 +118,7 @@ namespace DevExpress.Diagram.Demos {
         public static int GetLargestTableColsCount(DatabaseDefinition databaseDefinition, Dictionary<string, int> dicLevelPositions, int iLevel)
         {
             //Get Largest Table Cols Count per level to avoid the overlap
-            int iResult = 0;
+            
             List<KeyValuePair<string,int>> lstTablesInLevel= dicLevelPositions.Where(a => a.Value == iLevel).ToList();
             int iMaxColsCount = 0;
             foreach(KeyValuePair<string,int> keyValuePair1 in lstTablesInLevel)

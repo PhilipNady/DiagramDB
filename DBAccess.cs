@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,28 @@ namespace DiagramMainDemo
             sConnectionString = "Data Source=" + s1;
 
         }
+        public static string GetRelativeFilePath(string filePathAndName)
+        {
+            string startupPath = System.IO.Directory.GetCurrentDirectory();
+#if DEBUG
+            startupPath = Directory.GetParent(startupPath).Parent.FullName + "\\"+ filePathAndName;
+#endif
+            return startupPath;
+            
+        }
+
         public static string GetDataFileName(string filePathAndName)
         {
-            return FilesHelper.FindingFileName(Application.StartupPath, filePathAndName);
+            string startupPath = System.IO.Directory.GetCurrentDirectory();
+#if DEBUG
+            startupPath = Directory.GetParent(startupPath).Parent.FullName+"\\";
+#endif
+
+           // if (File.Exists(startupPath + filePathAndName))
+            {
+                return FilesHelper.FindingFileName(startupPath, filePathAndName);
+            }
+            return "";
         }
         public DataTable ExecuteDataTableText(string sQuery, Dictionary<string, object> dicParams = null, int? iCommandTimeout = null)
         {

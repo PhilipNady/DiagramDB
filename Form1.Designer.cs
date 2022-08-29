@@ -45,8 +45,7 @@
             // diagramControl
             // 
             this.diagramControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.diagramControl.Location = new System.Drawing.Point(13, 13);
-            this.diagramControl.Margin = new System.Windows.Forms.Padding(4);
+            this.diagramControl.Location = new System.Drawing.Point(10, 11);
             this.diagramControl.Name = "diagramControl";
             this.diagramControl.OptionsBehavior.ConnectorsSeparationMode = DevExpress.Diagram.Core.DiagramConnectorsSeparationMode.AllLines;
             this.diagramControl.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
@@ -63,7 +62,7 @@
             this.diagramControl.OptionsView.ShowRulers = false;
             this.diagramControl.OptionsView.ToolboxVisibility = DevExpress.Diagram.Core.ToolboxVisibility.Closed;
             this.diagramControl.PanAndZoom = this.panAndZoomDockPanel1;
-            this.diagramControl.Size = new System.Drawing.Size(1446, 432);
+            this.diagramControl.Size = new System.Drawing.Size(1084, 351);
             this.diagramControl.TabIndex = 0;
             this.diagramControl.Text = "diagramControl1";
             this.diagramControl.CustomDrawItem += new System.EventHandler<DevExpress.XtraDiagram.CustomDrawItemEventArgs>(this.diagramControl_CustomDrawItem);
@@ -72,7 +71,7 @@
             // panAndZoomDockPanel1
             // 
             this.panAndZoomDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.panAndZoomDockPanel1.FloatLocation = new System.Drawing.Point(736, 466);
+            this.panAndZoomDockPanel1.FloatLocation = new System.Drawing.Point(486, 480);
             this.panAndZoomDockPanel1.FloatSize = new System.Drawing.Size(300, 200);
             this.panAndZoomDockPanel1.FloatVertical = true;
             this.panAndZoomDockPanel1.ID = new System.Guid("8959ee7c-e6f7-4e0b-9bc6-06eee28c1926");
@@ -142,10 +141,9 @@
             // 
             // btnSelectFile
             // 
-            this.btnSelectFile.Location = new System.Drawing.Point(392, 645);
-            this.btnSelectFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelectFile.Location = new System.Drawing.Point(294, 524);
             this.btnSelectFile.Name = "btnSelectFile";
-            this.btnSelectFile.Size = new System.Drawing.Size(100, 28);
+            this.btnSelectFile.Size = new System.Drawing.Size(75, 23);
             this.btnSelectFile.TabIndex = 1;
             this.btnSelectFile.Text = "Select File";
             this.btnSelectFile.UseVisualStyleBackColor = true;
@@ -153,12 +151,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 688);
+            this.ClientSize = new System.Drawing.Size(1083, 559);
             this.Controls.Add(this.btnSelectFile);
             this.Controls.Add(this.diagramControl);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

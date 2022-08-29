@@ -30,14 +30,7 @@ namespace DevExpress.Diagram.Demos {
                 if (!lstCols.Contains(sTableName))
                 {
                     iTableNum++;
-                    tableDefinition1.PositionX = iPosX;
-                    tableDefinition1.PositionY = iPosY;
-                    iPosX += 250;
-                    if(iPosX>=1000)
-                    {
-                        iPosX = 0;
-                        iPosY += 650;
-                    }
+                   
 
                   
                     tableDefinition1.Name = sTableName;
@@ -63,6 +56,20 @@ namespace DevExpress.Diagram.Demos {
 
                         }
                         tableDefinition1.Columns.Add(columnDefinition);
+                    }
+                    tableDefinition1.PositionX = iPosX;
+                    tableDefinition1.PositionY = iPosY;
+                    iPosX += 250;
+                    if (iPosX >= 1000)
+                    {
+                        //each column got 35 Pos in Y
+                        iPosX = 0;
+                        iPosY += 80 * drsColumns.Count;
+                        //if (drsColumns.Count>20)
+                        //{
+                        //    iPosY += 300;
+                        //}
+                        
                     }
 
                     lstCols.Add(sTableName);

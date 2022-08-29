@@ -72,7 +72,7 @@
             // btnLoadFile
             // 
             this.btnLoadFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadFile.ImageOptions.Image")));
-            this.btnLoadFile.Location = new System.Drawing.Point(468, 10);
+            this.btnLoadFile.Location = new System.Drawing.Point(468, 12);
             this.btnLoadFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.Size = new System.Drawing.Size(54, 21);
@@ -83,16 +83,16 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(95, 10);
+            this.textEdit1.Location = new System.Drawing.Point(98, 12);
             this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(369, 20);
+            this.textEdit1.Size = new System.Drawing.Size(366, 20);
             this.textEdit1.StyleController = this.layoutControl1;
             this.textEdit1.TabIndex = 6;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(786, 453);
+            this.btnClose.Location = new System.Drawing.Point(785, 451);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.MaximumSize = new System.Drawing.Size(64, 18);
             this.btnClose.Name = "btnClose";
@@ -120,7 +120,7 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnClose;
-            this.layoutControlItem1.Location = new System.Drawing.Point(775, 443);
+            this.layoutControlItem1.Location = new System.Drawing.Point(773, 439);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(68, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -129,17 +129,17 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 443);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 439);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(775, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(773, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(515, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(514, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(328, 25);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(327, 25);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -147,14 +147,14 @@
             this.layoutControlItem3.Control = this.textEdit1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(457, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(456, 25);
             this.layoutControlItem3.Text = "Select .sdf File:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnLoadFile;
-            this.layoutControlItem4.Location = new System.Drawing.Point(457, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(456, 0);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(58, 25);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(58, 25);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -169,10 +169,10 @@
             // 
             // ctlSchemaDiagram1
             // 
-            this.ctlSchemaDiagram1.Location = new System.Drawing.Point(11, 35);
+            this.ctlSchemaDiagram1.Location = new System.Drawing.Point(12, 37);
             this.ctlSchemaDiagram1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctlSchemaDiagram1.Name = "ctlSchemaDiagram1";
-            this.ctlSchemaDiagram1.Size = new System.Drawing.Size(839, 414);
+            this.ctlSchemaDiagram1.Size = new System.Drawing.Size(837, 410);
             this.ctlSchemaDiagram1.TabIndex = 5;
             // 
             // layoutControlItem2
@@ -180,7 +180,7 @@
             this.layoutControlItem2.Control = this.ctlSchemaDiagram1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(843, 418);
+            this.layoutControlItem2.Size = new System.Drawing.Size(841, 414);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

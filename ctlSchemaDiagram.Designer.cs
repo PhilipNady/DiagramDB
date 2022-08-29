@@ -98,6 +98,7 @@
             this.diagramControl.Size = new System.Drawing.Size(744, 466);
             this.diagramControl.TabIndex = 4;
             this.diagramControl.Text = "diagramControl1";
+            this.diagramControl.CustomDrawItem += new System.EventHandler<DevExpress.XtraDiagram.CustomDrawItemEventArgs>(this.diagramControl_CustomDrawItem);
             this.diagramControl.DoubleClick += new System.EventHandler(this.diagramControl_DoubleClick);
             // 
             // panAndZoomDockPanel1

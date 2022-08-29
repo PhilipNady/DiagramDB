@@ -88,7 +88,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Data\nwind.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,30 +103,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Diagram\CircularLayoutDiagram.xml" />
     <Content Include="Data\Diagram\Connectors.xml" />
     <Content Include="Data\Diagram\ContainersAndLists.xml" />
     <Content Include="Data\Diagram\CustomShapes.xml" />
-    <Content Include="Data\Diagram\CustomShapesDocument_Win.xml" />
-    <Content Include="Data\Diagram\CustomShapesDocument_WPF.xml" />
-    <Content Include="Data\Diagram\CycleDiagram.xml" />
     <Content Include="Data\Diagram\DatabaseDiagram.xml" />
-    <Content Include="Data\Diagram\EmployeesWithPhoto.xml" />
     <Content Include="Data\Diagram\Events.xml" />
-    <Content Include="Data\Diagram\FilteredEmployeesWithPhoto.xml" />
-    <Content Include="Data\Diagram\Flowchart.xml" />
     <Content Include="Data\Diagram\Images.xml" />
-    <Content Include="Data\Diagram\LayeredLayoutDiagram.xml" />
-    <Content Include="Data\Diagram\MindMapTreeLayoutDiagram.xml" />
-    <Content Include="Data\Diagram\OfficePlan.xml" />
-    <Content Include="Data\Diagram\OrgChartLayoutDiagram.xml" />
     <Content Include="Data\Diagram\Project.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Diagram\Shapes.xml" />
-    <Content Include="Data\Diagram\TipOverTreeLayoutDiagram.xml" />
-    <Content Include="Data\Diagram\TournamentBracket.xml" />
-    <Content Include="Data\Diagram\TreeLayoutDiagram.xml" />
     <Content Include="Images\Backgrounds\floor.svg" />
     <Content Include="Images\DatabaseDiagram\id.svg" />
     <Content Include="Images\DatabaseDiagram\property.svg" />

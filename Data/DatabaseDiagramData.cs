@@ -67,7 +67,10 @@ namespace DevExpress.Diagram.Demos {
                             connectionDefinition.FromRelation = TableRelation.One;
                             connectionDefinition.From = drCol["RelatedTable"].ToString() + "."+ drCol["ColumnName"].ToString();
                             connectionDefinition.To = sTableName + "." + drCol["ColumnName"].ToString();
-
+                            //if (connectionDefinition != null)
+                            {
+                                databaseDefinition.Connections.Add(connectionDefinition);
+                            }
                         }
                         tableDefinition1.Columns.Add(columnDefinition);
                         
@@ -76,10 +79,7 @@ namespace DevExpress.Diagram.Demos {
 
                     lstCols.Add(sTableName);
                     databaseDefinition.Tables.Add(tableDefinition1);
-                    if(connectionDefinition!=null)
-                    {
-                        databaseDefinition.Connections.Add(connectionDefinition);
-                    }
+                   
                     
                 }
             }

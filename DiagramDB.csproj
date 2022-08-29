@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DB2EAC2-12ED-4F35-9E57-DCAA858A88C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DiagramDB</RootNamespace>
+    <AssemblyName>DiagramDB</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v22.1.Core, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v22.1.Core, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v22.1.Core, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DatabaseDiagramData.cs" />
+    <Compile Include="DBAccess.cs" />
+    <Compile Include="DiagramDemoFileHelper.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Data\nwind.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Diagram\CircularLayoutDiagram.xml" />
+    <Content Include="Data\Diagram\Connectors.xml" />
+    <Content Include="Data\Diagram\ContainersAndLists.xml" />
+    <Content Include="Data\Diagram\CustomShapes.xml" />
+    <Content Include="Data\Diagram\CustomShapesDocument_Win.xml" />
+    <Content Include="Data\Diagram\CustomShapesDocument_WPF.xml" />
+    <Content Include="Data\Diagram\CycleDiagram.xml" />
+    <Content Include="Data\Diagram\DatabaseDiagram.xml" />
+    <Content Include="Data\Diagram\EmployeesWithPhoto.xml" />
+    <Content Include="Data\Diagram\Events.xml" />
+    <Content Include="Data\Diagram\FilteredEmployeesWithPhoto.xml" />
+    <Content Include="Data\Diagram\Flowchart.xml" />
+    <Content Include="Data\Diagram\Images.xml" />
+    <Content Include="Data\Diagram\LayeredLayoutDiagram.xml" />
+    <Content Include="Data\Diagram\MindMapTreeLayoutDiagram.xml" />
+    <Content Include="Data\Diagram\OfficePlan.xml" />
+    <Content Include="Data\Diagram\OrgChartLayoutDiagram.xml" />
+    <Content Include="Data\Diagram\Project.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Diagram\Shapes.xml" />
+    <Content Include="Data\Diagram\TipOverTreeLayoutDiagram.xml" />
+    <Content Include="Data\Diagram\TournamentBracket.xml" />
+    <Content Include="Data\Diagram\TreeLayoutDiagram.xml" />
+    <Content Include="Images\Backgrounds\floor.svg" />
+    <Content Include="Images\DatabaseDiagram\id.svg" />
+    <Content Include="Images\DatabaseDiagram\property.svg" />
+    <Content Include="Images\OfficePlan\Armchair.svg" />
+    <Content Include="Images\OfficePlan\Chair 1.svg" />
+    <Content Include="Images\OfficePlan\Chair 2.svg" />
+    <Content Include="Images\OfficePlan\Chair.svg" />
+    <Content Include="Images\OfficePlan\Check.svg" />
+    <Content Include="Images\OfficePlan\Couch.svg" />
+    <Content Include="Images\OfficePlan\Cup 1.svg" />
+    <Content Include="Images\OfficePlan\Cup.svg" />
+    <Content Include="Images\OfficePlan\Cupboard.svg" />
+    <Content Include="Images\OfficePlan\Floor.svg" />
+    <Content Include="Images\OfficePlan\Flowers 1.svg" />
+    <Content Include="Images\OfficePlan\Flowers 2.svg" />
+    <Content Include="Images\OfficePlan\Flowers 3.svg" />
+    <Content Include="Images\OfficePlan\Flowers 4.svg" />
+    <Content Include="Images\OfficePlan\Flowers 5.svg" />
+    <Content Include="Images\OfficePlan\Keyboard 1.svg" />
+    <Content Include="Images\OfficePlan\Keyboard 2.svg" />
+    <Content Include="Images\OfficePlan\Keyboard.svg" />
+    <Content Include="Images\OfficePlan\Laptop.svg" />
+    <Content Include="Images\OfficePlan\Monitor 1.svg" />
+    <Content Include="Images\OfficePlan\Monitor.svg" />
+    <Content Include="Images\OfficePlan\Nightstand.svg" />
+    <Content Include="Images\OfficePlan\Notebook 1.svg" />
+    <Content Include="Images\OfficePlan\Notebook 2.svg" />
+    <Content Include="Images\OfficePlan\Notebook.svg" />
+    <Content Include="Images\OfficePlan\Table.svg" />
+    <Content Include="Images\OfficePlan\Window.svg" />
+    <Content Include="Images\OrgChart\BeltTemplate.png" />
+    <Content Include="Images\OrgChart\BottomTextTemplate.png" />
+    <Content Include="Images\OrgChart\CollapsibleTemplate.png" />
+    <Content Include="Images\OrgChart\RightTextTemplate.png" />
+    <Content Include="Images\OrgChart\RightTextTemplate1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

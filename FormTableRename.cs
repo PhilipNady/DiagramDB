@@ -23,6 +23,7 @@ namespace DiagramMainDemo
         private void FormTableRename_Shown(object sender, EventArgs e)
         {
             txtTableName.Text = ctlSchemaDiagram.sNewTableName;
+            lblOperation.Text = ctlSchemaDiagram.sNewTableOperation;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

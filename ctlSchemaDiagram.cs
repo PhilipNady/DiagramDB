@@ -3,6 +3,7 @@ using DevExpress.Diagram.Demos;
 using DevExpress.Utils;
 using DevExpress.Utils.Drawing;
 using DevExpress.Utils.Svg;
+using DevExpress.XtraBars;
 using DevExpress.XtraDiagram;
 using DevExpress.XtraEditors;
 using DiagramMainDemo;
@@ -17,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace DiagramDB
 {
@@ -37,8 +39,9 @@ namespace DiagramDB
 
             PropertyImage = LoadSvgImage("Images/DatabaseDiagram/property.svg");
             FillData();
-            
+
         }
+
         public void FillData()
         {
             if (File.Exists(DBAccess.GetRelativeFilePath("Data\\Diagram\\" + "Project.sdf")))
@@ -62,24 +65,27 @@ namespace DiagramDB
             {
                 PointFloat controlPoint = diagramControl.PointToControl(itemTable.Position);
                 FormTableRename formTableRename = new FormTableRename();
-                
-                 sNewTableName = itemTable.Header;
-                 formTableRename.Show();
+
+                sNewTableName = itemTable.Header;
+                formTableRename.Show();
 
             }
-            if(itemColumn!=null)
+            if (itemColumn != null)
             {
                 string sColumnName = itemColumn.Content;
             }
         }
+
         void diagramControl_CustomDrawItem(object sender, CustomDrawItemEventArgs e)
         {
             var column = e.Item.DataContext as ColumnDefinition;
+
+
             if (column == null || e.Item.Tag == null)
                 return;
             //var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : PropertyImage;
             SvgBitmap image = null;
-            if(column.IsPrimaryKey)
+            if (column.IsPrimaryKey)
             {
                 image = PKImage;
             }
@@ -89,7 +95,7 @@ namespace DiagramDB
                 {
                     image = FKImage;
                 }
-            } 
+            }
             // var image = column.IsPrimaryKey || column.IsForeignKey ? IdImage : null;
 
 
@@ -119,6 +125,7 @@ namespace DiagramDB
                 e.Item = CreateTableItem();
             else
                 e.Item = CreateColumnItem();
+
         }
         void diagramDataBindingController1_GenerateConnector(object sender, DiagramGenerateConnectorEventArgs e)
         {
@@ -153,6 +160,7 @@ namespace DiagramDB
 
             stack.Appearance.BorderSize = 2;
             stack.Appearance.Font = new Font(stack.Appearance.Font.FontFamily, 16);
+
             return stack;
         }
         static DiagramItem CreateColumnItem()
@@ -213,8 +221,78 @@ namespace DiagramDB
             return new SvgBitmap(DiagramDemoFileHelper.GetSvgImageResource(svgPath));
         }
         public static string sNewTableName = "";
+        public static string sNewTableOperation = "";
+        public static string ClickedColName = "";
+        public PopupMenu ItemContextMenu { get; set; }
+        private void diagramControl_MouseUp(object sender, MouseEventArgs e)
+        {
 
-        
-        
+            if(e.Button == MouseButtons.Right)
+            {
+                var itemTable = diagramControl.CalcHitItem(e.Location) as DiagramList;
+                var itemColumn =  diagramControl.CalcHitItem(e.Location) as DiagramShape;
+                
+                if (itemTable != null)
+                {
+                    sNewTableName = itemTable.Header;
+                    popupMenuTable.ShowPopup(PointToScreen(e.Location));  
+                }
+                else if(itemColumn!=null)
+                {
+                    ClickedColName = "";
+                    var itemTableTemp=  itemColumn.ParentItem.ParentItem as DiagramList;
+                    if (itemTableTemp != null)
+                    {
+                        ClickedColName = itemTableTemp.Header+".";
+                    }
+                    ClickedColName +=  itemColumn.Content;
+                    popupMenuColumn.ShowPopup(PointToScreen(e.Location));
+                }
+            }
+        }
+
+        private void barButtonItemTable_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormTableRename formTableRename = new FormTableRename();
+            sNewTableOperation = e.Item.Caption;
+            if (e.Item.Caption.StartsWith("Add"))
+            {
+                sNewTableName = "";
+            }
+            formTableRename.Show();
+        }
+        private void barButtonItemColumn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string sMsg = e.Item.Caption;
+            if (e.Item.Caption.StartsWith("Add"))
+            {
+                sMsg += " to " + ClickedColName.Split(new string[] {"." }, StringSplitOptions.RemoveEmptyEntries)[0];
+            }
+            else
+            {
+                sMsg += " " + ClickedColName;
+            }
+            MessageBox.Show(sMsg);
+        }
+
+        private void btnExportToClipboard_Click(object sender, EventArgs e)
+        {
+            var imageStream = new MemoryStream();
+            diagramControl.ExportDiagram(imageStream, DiagramExportFormat.JPEG);
+            imageStream.Seek(0, SeekOrigin.Begin);
+            var decoder = new JpegBitmapDecoder(imageStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
+            
+           var bitmapSource = decoder.Frames[0];
+            bitmapSource.Freeze();
+
+            System.Windows.Clipboard.SetImage(bitmapSource);
+           // MessageBox.Show("Copied to Clipboard");
+
+        }
+
+        private void btnExportToFile_Click(object sender, EventArgs e)
+        {
+            diagramControl.ExportToPdf();
+        }
     }
 }

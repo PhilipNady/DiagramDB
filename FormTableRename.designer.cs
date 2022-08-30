@@ -30,6 +30,7 @@
         {
             this.txtTableName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lblOperation = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
             // txtTableName
@@ -49,11 +50,19 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lblOperation
+            // 
+            this.lblOperation.Location = new System.Drawing.Point(96, 32);
+            this.lblOperation.Name = "lblOperation";
+            this.lblOperation.Size = new System.Drawing.Size(0, 13);
+            this.lblOperation.TabIndex = 2;
+            // 
             // FormTableRename
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblOperation);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtTableName);
             this.Name = "FormTableRename";
@@ -68,5 +77,6 @@
 
         private System.Windows.Forms.TextBox txtTableName;
         private System.Windows.Forms.Button btnSave;
+        private DevExpress.XtraEditors.LabelControl lblOperation;
     }
 }

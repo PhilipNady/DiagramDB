@@ -57,24 +57,7 @@ namespace DiagramDB
             }
         }
 
-        private void diagramControl_DoubleClick(object sender, EventArgs e)
-        {
-            var itemTable = diagramControl.CalcHitItem(((System.Windows.Forms.MouseEventArgs)e).Location) as DiagramList;
-            var itemColumn = diagramControl.CalcHitItem(((System.Windows.Forms.MouseEventArgs)e).Location) as DiagramShape;
-            if (itemTable != null)
-            {
-                PointFloat controlPoint = diagramControl.PointToControl(itemTable.Position);
-                FormTableRename formTableRename = new FormTableRename();
-
-                sNewTableName = itemTable.Header;
-                formTableRename.Show();
-
-            }
-            if (itemColumn != null)
-            {
-                string sColumnName = itemColumn.Content;
-            }
-        }
+       
 
         void diagramControl_CustomDrawItem(object sender, CustomDrawItemEventArgs e)
         {
@@ -221,7 +204,7 @@ namespace DiagramDB
             return new SvgBitmap(DiagramDemoFileHelper.GetSvgImageResource(svgPath));
         }
         public static string sNewTableName = "";
-        public static string sNewTableOperation = "";
+       
         public static string ClickedColName = "";
         public PopupMenu ItemContextMenu { get; set; }
         private void diagramControl_MouseUp(object sender, MouseEventArgs e)
@@ -253,13 +236,18 @@ namespace DiagramDB
 
         private void barButtonItemTable_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FormTableRename formTableRename = new FormTableRename();
-            sNewTableOperation = e.Item.Caption;
+            string sMsg = e.Item.Caption;
             if (e.Item.Caption.StartsWith("Add"))
             {
-                sNewTableName = "";
+                sMsg += " " ;
             }
-            formTableRename.Show();
+            else
+            {
+                sMsg += " " + sNewTableName;
+            }
+            MessageBox.Show(sMsg);
+
+           
         }
         private void barButtonItemColumn_ItemClick(object sender, ItemClickEventArgs e)
         {
